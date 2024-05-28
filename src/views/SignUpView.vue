@@ -54,7 +54,14 @@ const signup = async () => {
         @click="signup" 
         label="Sign up"
       />
-      <span>Are you already registered? <router-link  to="/signin">Sign in</router-link></span>
+      <span>Are you already registered? 
+        <router-link
+          @click="authStore.error = null"  
+          to="/signin"
+        >
+          Sign in
+        </router-link>
+      </span>
     </div>
   </form>
   </div>

@@ -20,7 +20,7 @@ const checkUser = () => {
 const logout = () => {
   authStore.logout()
   localStorage.removeItem('userTokens')
-  //authStore.error = null
+  authStore.error = null
   router.push('/signin')
 }
 checkUser()
