@@ -18,22 +18,6 @@ axiosApiInstance.interceptors.request.use((config) => {
   return config
 })
 
-// axios.interceptors.request.use((config) => {
-//   const url = config.url
-//   const authStore = useAuthStore()
-//   if (!url.includes('singInWithPassword') && !url.includes('signUp')) {
-//     config.headers.Authorization = `Bearer ${authStore.userInfo.token}`
-//   }
-//   return config
-// })
-
-// axios.interceptors.request.use((config) => {
-//   const authStore = useAuthStore()
-//   config.headers['auth'] = authStore.userInfo.token
-//   return config
-// })
-
-
 axiosApiInstance.interceptors.response.use((response) => {
   return response
 }, async (error) => {
@@ -59,11 +43,6 @@ axiosApiInstance.interceptors.response.use((response) => {
           refreshToken: newTokens.data.refresh_token
         })
       )
-      // Установите новый токен доступа в исходный запрос
-      // axiosApiInstance.defaults.headers.common['Authorization'] =
-      //   `Bearer ${newTokens.data.id_token}`
-      // originalRequest.headers['Authorization'] = `Bearer ${newTokens.data.id_token}`
-      // return axiosApiInstance(originalRequest)
     } catch (err) {
       console.log(err)
       localStorage.removeItem('userTokens')

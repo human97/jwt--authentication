@@ -37,27 +37,11 @@ const router = createRouter({
         auth: true
       }
     }
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (About.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import('../views/AboutView.vue')
-    // }
   ]
 })
 
 router.beforeEach((to, from, next) => {
   const authStore = useAuthStore()
-
-  // if (to.meta.auth && !authStore.userInfo.token) {
-  //   next('/signin')
-  // } else if  (!to.meta.auth && authStore.userInfo.token) {
-  //   next('/cars')
-  // } else {
-  //   next()
-  // }
   
   // Если путь требует аутентификации и пользователь не залогинен
   if (to.meta.auth && !authStore.userInfo.token) {
